@@ -1,0 +1,87 @@
+﻿{
+	"Format": "1.20.0",
+	"ConfigSchema": {
+		"NumBaitCrafted": {
+			"Default": "25",
+			"Description": "The number of Wild Bait created when crafting."
+		},
+		"AlternateWildBait": {
+			"AllowValues": "true, false",
+			"Default": "true",
+			"Description": "Enable Alternate Wild Bait Recipe."
+		},
+		"FishingSkillReq": {
+			"AllowValues": "0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10",
+			"Default": "9",
+			"Description": "Fishing skill required to unlock Alternate Wild Bait."
+		},
+		"NumAltBaitCrafted": {
+			"Default": "1",
+			"Description": "The number of Alternate Wild Bait created when crafting."
+		},
+		"FiberNeeded": {
+			"Default": "2",
+			"Description": "Number of Fiber needed to craft Alternate Wild Bait."
+		},
+		"FishNeeded": {
+			"Default": "1",
+			"Description": "Number of Fish (Any) needed to craft Alternate Wild Bait."
+		},
+		"ThirdIngredient": {
+			"AllowValues": "None, Sap, Slime",
+			"Default": "Sap",
+			"Description": "Third Ingredient required to craft Alternate Wild Bait."
+		},
+		"ThirdIngredientNeeded": {
+			"Default": "5",
+			"Description": "Number of Third Ingredient needed to craft Alternate Wild Bait."
+		},
+	},
+	"Changes": [
+	{	  	
+		"Action": "EditData",
+		"Target": "Data/CraftingRecipes",
+		"Fields": {
+			"Wild Bait": { 
+						0: "771 10 684 5 766 5",
+						1: "Home",
+						2: "774 {{NumBaitCrafted}}",
+						3: "false",
+						4: "null" },
+		},
+	},
+	{
+		"Action": "EditData",
+		"Target": "Data/CraftingRecipes",
+		"Entries": {
+			"Wild Bait (Fish)": "771 {{FiberNeeded}} -4 {{FishNeeded}}/Home/774 {{NumAltBaitCrafted}}/false/Fishing {{FishingSkillReq}}"
+		},
+		"When": {
+			"AlternateWildBait": "true",
+			"ThirdIngredient": "None"
+		}
+	},
+	{
+		"Action": "EditData",
+		"Target": "Data/CraftingRecipes",
+		"Entries": {
+			"Wild Bait (Fish)": "771 {{FiberNeeded}} -4 {{FishNeeded}} 92 {{ThirdIngredientNeeded}}/Home/774 {{NumAltBaitCrafted}}/false/Fishing {{FishingSkillReq}}"
+		},
+		"When": {
+			"AlternateWildBait": "true",
+			"ThirdIngredient": "Sap"
+		}
+	},
+	{
+		"Action": "EditData",
+		"Target": "Data/CraftingRecipes",
+		"Entries": {
+			"Wild Bait (Fish)": "771 {{FiberNeeded}} -4 {{FishNeeded}} 766 {{ThirdIngredientNeeded}}/Home/774 {{NumAltBaitCrafted}}/false/Fishing {{FishingSkillReq}}"
+		},
+		"When": {
+			"AlternateWildBait": "true",
+			"ThirdIngredient": "Slime"
+		}
+	},
+	]
+}

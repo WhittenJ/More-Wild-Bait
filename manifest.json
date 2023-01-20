@@ -1,0 +1,11 @@
+{
+   "Name": "More Wild Bait",
+   "Author": "UnknownLegacy",
+   "Version": "1.2.0",
+   "Description": "Changes the Wait Bait Recipe to produce more.",
+   "UniqueID": "UnknownLegacy.MoreWildBait",
+   "UpdateKeys": [ "Nexus:7905" ],
+   "ContentPackFor": {
+      "UniqueID": "Pathoschild.ContentPatcher"
+   }
+}
